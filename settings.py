@@ -4,9 +4,14 @@ import os
 class SettingsManager:
     def __init__(self, settings_file='settings.json'):
         self.settings_file = settings_file
-        self.settings = self._load_settings()
+        self.settings = {
+            "custom_rules": [],  # List of dictionaries, each representing a rule
+            "duplicate_handling": "skip", # skip, overwrite, rename
+            "auto_organize_interval": 0 # in minutes, 0 for disabled
+        }
+        self.load_settings()
 
-    def _load_settings(self):
+    def load_settings(self):
         if os.path.exists(self.settings_file):
             with open(self.settings_file, 'r') as f:
                 return json.load(f)
