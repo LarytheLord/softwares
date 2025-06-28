@@ -8,5 +8,5 @@ OutputDir=.\installer_output_minimal
 OutputBaseFilename=FileManagementSoftware_Minimal_Installer
 
 [Files]
-Source: "C:\Users\A R Khan\OneDrive\Documents\Trae\software\dist\main.exe"; DestDir="{app}"; Flags: ignoreversion
+Source: "dist\main.exe"; DestDir: "{app}"; Flags: ignoreversion
 

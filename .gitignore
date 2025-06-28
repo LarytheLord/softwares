@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+dist/
+
+# Installer output
+installer_output/
+installer_output_minimal/
+
+# Settings
+settings.json
