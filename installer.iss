@@ -14,8 +14,8 @@ OutputBaseFilename=FileManagementSoftware_Installer
 LicenseFile=LICENSE.txt
 
 [Files]
-Source: "C:\Users\A R Khan\OneDrive\Documents\Trae\software\dist\main.exe"; DestDir="{app}"; Flags: ignoreversion
-Source: "C:\Users\A R Khan\OneDrive\Documents\Trae\software\LICENSE.txt"; DestDir="{app}"; Flags: ignoreversion
+Source: "dist\main.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\File Management Software"; Filename: "{app}\main.exe"
