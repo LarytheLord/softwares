@@ -1,0 +1,159 @@
+"use client";
+
+import { useState } from 'react';
+
+export default function Home() {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Thank you for your interest, ${email}! We'll notify you about updates.`);
+    setEmail('');
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800">
+      {/* Header */}
+      <header className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold text-indigo-600">File Organizer Pro</div>
+        <nav>
+          <ul className="flex space-x-6">
+            <li><a href="#features" className="hover:text-indigo-600 transition duration-300">Features</a></li>
+            <li><a href="#about" className="hover:text-indigo-600 transition duration-300">About</a></li>
+            <li><a href="#contact" className="hover:text-indigo-600 transition duration-300">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-6 py-20 text-center">
+        <h1 className="text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+          Effortless File Management for a Tidy Digital Life
+        </h1>
+        <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+          Automate organization, handle duplicates, and keep your files perfectly sorted with File Organizer Pro.
+        </p>
+        <a
+          href="#download"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105"
+        >
+          Download Now
+        </a>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="container mx-auto px-6 py-20 bg-white rounded-lg shadow-xl -mt-10 relative z-10">
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Powerful Features at Your Fingertips</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {/* Feature 1 */}
+          <div className="bg-gray-50 p-8 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
+            <div className="text-5xl mb-4">📁</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">Smart File Categorization</h3>
+            <p className="text-gray-600">Automatically sort files into predefined categories like Images, Documents, Videos, and more, based on their type.</p>
+          </div>
+          {/* Feature 2 */}
+          <div className="bg-gray-50 p-8 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
+            <div className="text-5xl mb-4">⚙️</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">Customizable Organization Rules</h3>
+            <p className="text-gray-600">Create your own rules to organize files exactly how you want, using keywords, file types, and destination folders.</p>
+          </div>
+          {/* Feature 3 */}
+          <div className="bg-gray-50 p-8 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
+            <div className="text-5xl mb-4">🔄</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">Intelligent Duplicate Handling</h3>
+            <p className="text-gray-600">Choose how to manage duplicate files: skip, overwrite, or automatically rename them to keep your storage clean.</p>
+          </div>
+          {/* Feature 4 */}
+          <div className="bg-gray-50 p-8 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
+            <div className="text-5xl mb-4">↩️</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">One-Click Undo</h3>
+            <p className="text-gray-600">Accidentally organized something wrong? Instantly revert your last organization with a single click.</p>
+          </div>
+          {/* Feature 5 */}
+          <div className="bg-gray-50 p-8 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
+            <div className="text-5xl mb-4">⏰</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">Scheduled Automation</h3>
+            <p className="text-600">Set up automatic organization at regular intervals to maintain a perpetually tidy system without manual effort.</p>
+          </div>
+          {/* Feature 6 */}
+          <div className="bg-50 p-8 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
+            <div className="text-5xl mb-4">🖥️</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">Intuitive User Interface</h3>
+            <p className="text-gray-600">A clean and easy-to-use graphical interface built with PyQt5 makes file management a breeze for everyone.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="container mx-auto px-6 py-20 text-center">
+        <h2 className="text-4xl font-bold text-gray-900 mb-8">About File Organizer Pro</h2>
+        <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          In today's digital age, managing a growing collection of files can be overwhelming. File Organizer Pro was developed to simplify this process, providing a robust yet user-friendly solution for keeping your digital workspace clean and efficient. Built with Python and PyQt5 for a native desktop experience, and powered by intelligent categorization and automation, our software ensures your files are always where they should be, giving you more time to focus on what matters.
+        </p>
+      </section>
+
+      {/* Call to Action / Download Section */}
+      <section id="download" className="bg-indigo-600 text-white py-20 text-center">
+        <h2 className="text-4xl font-bold mb-6">Ready to Reclaim Your Digital Space?</h2>
+        <p className="text-xl mb-10">Download File Organizer Pro today and experience the future of file management.</p>
+        <a
+          href="/FileManagementSoftware_Installer.exe" // Link to your installer
+          download
+          className="bg-white text-indigo-600 hover:bg-indigo-100 font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105"
+        >
+          Download for Windows
+        </a>
+      </section>
+
+      {/* Contact/Newsletter Section */}
+      <section id="contact" className="container mx-auto px-6 py-20 text-center">
+        <h2 className="text-4xl font-bold text-gray-900 mb-8">Stay Updated</h2>
+        <p className="text-lg text-gray-700 mb-8">Join our newsletter for the latest news, updates, and tips on file organization.</p>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="Your Email Address"
+            className="w-full p-4 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105"
+          >
+            Subscribe
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8 text-center">
+        <div className="container mx-auto px-6">
+          <p>&copy; {new Date().getFullYear()} File Organizer Pro. All rights reserved.</p>
+          <div className="flex justify-center space-x-6 mt-4">
+            <a href="#" className="hover:text-indigo-400">Privacy Policy</a>
+            <a href="#" className="hover:text-indigo-400">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+//
+npm run dev                                                               
+ 
+> landing-page@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Attempted to load C:\Users\A R Khan\OneDrive\Documents\Trae\software\landing-page\node_modules\next\next-swc-fallback\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node, but it was not installed
+ ⚠ Attempted to load @next/swc-win32-x64-msvc, but it was not installed
+ ⚠ Attempted to load C:\Users\A R Khan\OneDrive\Documents\Trae\software\landing-page\node_modules\next\next-swc-fallback\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node, but it was not installed
+ ⚠ Attempted to load @next/swc-win32-x64-msvc, but it was not installed
+   ▲ Next.js 15.3.4 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.31.119:3000
+
+ ✓ Starting...
+[Error: `turbo.createProject` is not supported by the wasm bindings.]
