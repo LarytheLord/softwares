@@ -1,9 +1,14 @@
+
 import sys
+import logging
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QAction, QTableWidgetItem
-from organizer import FileOrganizer
-from settings import SettingsManager
-from ui import MainUI, SettingsDialog
-from scheduler import FileOrganizerScheduler
+from src.organizer import FileOrganizer
+from src.settings import SettingsManager
+from src.ui import MainUI, SettingsDialog
+from src.scheduler import FileOrganizerScheduler
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class FileOrganizerApp(QMainWindow):
     def __init__(self):
@@ -19,7 +24,7 @@ class FileOrganizerApp(QMainWindow):
             self.organizer,
             lambda: self.main_ui.folder_path_input.text(),
             lambda: self.settings_manager.get_setting("auto_organize_interval"),
-            self.status_log.append
+            self.log_status
         )
 
         self.setup_ui()
@@ -64,29 +69,32 @@ class FileOrganizerApp(QMainWindow):
             self.scheduler.start_scheduler()
 
     def undo_organization(self):
-        self.status_log.append("Attempting to undo last organization...")
+        self.log_status("Attempting to undo last organization...")
         message, log_entries = self.organizer.undo_last_organization()
-        self.status_log.append(message)
+        self.log_status(message)
         for entry in log_entries:
-            self.status_log.append(entry)
+            self.log_status(entry)
         self.main_ui.organized_files_table.setRowCount(0) # Clear table on undo
 
     def organize_files(self):
         source_folder = self.main_ui.folder_path_input.text()
         if not source_folder:
-            self.main_ui.status_log.append("Please select a folder first.")
+            self.log_status("Please select a folder first.")
             return
-        self.main_ui.status_log.append(f"Organizing files in: {source_folder}")
-        print(f"[DEBUG] Source folder for organization: {source_folder}")
+        self.log_status(f"Organizing files in: {source_folder}")
         
         status_message, moved_files = self.organizer.organize_folder(source_folder)
-        self.main_ui.status_log.append(status_message)
+        self.log_status(status_message)
         
         self.main_ui.organized_files_table.setRowCount(0) # Clear previous results
         for row, file_info in enumerate(moved_files):
             self.main_ui.organized_files_table.insertRow(row)
             self.main_ui.organized_files_table.setItem(row, 0, QTableWidgetItem(file_info['file_name']))
             self.main_ui.organized_files_table.setItem(row, 1, QTableWidgetItem(file_info['time_created']))
+
+    def log_status(self, message):
+        logging.info(message)
+        self.status_log.append(message)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -1,4 +1,5 @@
 import schedule
+from src.organizer import FileOrganizer
 import time
 import threading
 

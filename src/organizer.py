@@ -4,8 +4,8 @@ import time
 from datetime import datetime
 import re
 
-from file_manager import FileManager
-from settings import SettingsManager
+from src.file_manager import FileManager
+from src.settings import SettingsManager
 
 class FileOrganizer:
     def __init__(self):
